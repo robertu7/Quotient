@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.open-next/
+.wrangler/
+.dev.vars
+worker-configuration.d.ts
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+tmp/
+.DS_Store

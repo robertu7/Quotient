@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "quotation-manager",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-06-21",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "quotation-manager",
+      "database_id": "replace-with-production-d1-id",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    { "binding": "LOGOS", "bucket_name": "quotation-manager-logos" }
+  ],
+  "observability": { "enabled": true, "head_sampling_rate": 1 }
+}
