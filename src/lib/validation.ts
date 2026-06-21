@@ -15,7 +15,10 @@ export const projectInput = z.object({
   customerId: z.string().uuid(),
   name: z.string().trim().min(1).max(160),
   description: optionalText,
-  currency: z.string().trim().regex(/^[A-Z]{3}$/),
+  currency: z
+    .string()
+    .trim()
+    .regex(/^[A-Z]{3}$/),
   startedOn: isoDate.optional().or(z.literal("")),
 });
 
@@ -44,7 +47,10 @@ export const documentEditInput = z.object({
   dueDate: isoDate.optional().or(z.literal("")),
   notes: optionalText,
   terms: optionalText,
-  lines: z.array(lineInput.extend({ id: z.string().uuid().optional() })).min(1).max(100),
+  lines: z
+    .array(lineInput.extend({ id: z.string().uuid().optional() }))
+    .min(1)
+    .max(100),
 });
 
 export const paymentInput = z.object({

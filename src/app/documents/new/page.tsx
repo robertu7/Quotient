@@ -8,10 +8,24 @@ import { projects } from "@/db/schema";
 
 export const dynamic = "force-dynamic";
 
-export default async function NewDocumentPage({ searchParams }: { searchParams: Promise<{ projectId?: string; type?: string }> }) {
+export default async function NewDocumentPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ projectId?: string; type?: string }>;
+}) {
   const { projectId, type } = await searchParams;
   if (!projectId || (type !== "quotation" && type !== "invoice")) notFound();
-  const project = await getDb().query.projects.findFirst({ where: eq(projects.id, projectId) });
+  const project = await getDb().query.projects.findFirst({
+    where: eq(projects.id, projectId),
+  });
   if (!project) notFound();
-  return <><PageHead eyebrow={project.name} title={`New ${type}`} /><p className="subtle">All amounts use {project.currency}. Tax and discounts are not applied.</p><DocumentForm action={createDocument} projectId={projectId} type={type} /></>;
+  return (
+    <>
+      <PageHead eyebrow={project.name} title={`New ${type}`} />
+      <p className="subtle">
+        All amounts use {project.currency}. Tax and discounts are not applied.
+      </p>
+      <DocumentForm action={createDocument} projectId={projectId} type={type} />
+    </>
+  );
 }

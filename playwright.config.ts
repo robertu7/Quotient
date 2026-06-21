@@ -11,7 +11,8 @@ export default defineConfig({
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: {
-    command: "npm run db:migrate:local && npm run dev -- --hostname 127.0.0.1 --port 3100",
+    command:
+      "npm run db:migrate:local && npm run dev -- --hostname 127.0.0.1 --port 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: true,
     timeout: 120_000,

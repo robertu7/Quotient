@@ -21,10 +21,12 @@ describe("quantity and money", () => {
   });
 
   it("sums independently rounded line totals", () => {
-    expect(documentTotalMinor([
-      { quantity: parseQuantity("1.3333"), unitPriceMinor: 100 },
-      { quantity: parseQuantity("2"), unitPriceMinor: 250 },
-    ])).toBe(633);
+    expect(
+      documentTotalMinor([
+        { quantity: parseQuantity("1.3333"), unitPriceMinor: 100 },
+        { quantity: parseQuantity("2"), unitPriceMinor: 250 },
+      ])
+    ).toBe(633);
   });
 
   it("rejects invalid precision", () => {
@@ -33,15 +35,20 @@ describe("quantity and money", () => {
 });
 
 describe("document rules", () => {
-  it("formats yearly numbers", () => expect(formatDocumentNumber("invoice", 2026, 7)).toBe("INV-2026-0007"));
+  it("formats yearly numbers", () =>
+    expect(formatDocumentNumber("invoice", 2026, 7)).toBe("INV-2026-0007"));
   it("increments only customer-facing issued changes", () => {
     expect(nextRevision(1, "issued", true)).toBe(2);
     expect(nextRevision(2, "issued", false)).toBe(2);
     expect(nextRevision(0, "draft", true)).toBe(0);
   });
   it("derives quote expiry", () => {
-    expect(quotationDisplayState("pending", "2026-01-01", "2026-01-02")).toBe("expired");
-    expect(quotationDisplayState("accepted", "2026-01-01", "2026-01-02")).toBe("accepted");
+    expect(quotationDisplayState("pending", "2026-01-01", "2026-01-02")).toBe(
+      "expired"
+    );
+    expect(quotationDisplayState("accepted", "2026-01-01", "2026-01-02")).toBe(
+      "accepted"
+    );
   });
 });
 
@@ -54,6 +61,8 @@ describe("invoices", () => {
   });
   it("rejects overpayment and overallocation", () => {
     expect(() => invoiceBalanceMinor(100, [101])).toThrow(/exceed/);
-    expect(() => assertAllocationAvailable(10_000, 8_000, 2_001)).toThrow(/remaining/);
+    expect(() => assertAllocationAvailable(10_000, 8_000, 2_001)).toThrow(
+      /remaining/
+    );
   });
 });

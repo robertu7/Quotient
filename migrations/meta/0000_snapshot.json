@@ -69,16 +69,12 @@
       "indexes": {
         "allocations_quote_line_idx": {
           "name": "allocations_quote_line_idx",
-          "columns": [
-            "quotation_line_id"
-          ],
+          "columns": ["quotation_line_id"],
           "isUnique": false
         },
         "allocations_invoice_line_unique": {
           "name": "allocations_invoice_line_unique",
-          "columns": [
-            "invoice_line_id"
-          ],
+          "columns": ["invoice_line_id"],
           "isUnique": true
         }
       },
@@ -87,12 +83,8 @@
           "name": "allocations_quotation_line_id_document_lines_id_fk",
           "tableFrom": "allocations",
           "tableTo": "document_lines",
-          "columnsFrom": [
-            "quotation_line_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["quotation_line_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "no action"
         },
@@ -100,12 +92,8 @@
           "name": "allocations_invoice_line_id_document_lines_id_fk",
           "tableFrom": "allocations",
           "tableTo": "document_lines",
-          "columnsFrom": [
-            "invoice_line_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["invoice_line_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -292,9 +280,7 @@
       "indexes": {
         "customers_name_idx": {
           "name": "customers_name_idx",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": false
         }
       },
@@ -389,17 +375,12 @@
       "indexes": {
         "document_lines_document_idx": {
           "name": "document_lines_document_idx",
-          "columns": [
-            "document_id"
-          ],
+          "columns": ["document_id"],
           "isUnique": false
         },
         "document_lines_position_unique": {
           "name": "document_lines_position_unique",
-          "columns": [
-            "document_id",
-            "position"
-          ],
+          "columns": ["document_id", "position"],
           "isUnique": true
         }
       },
@@ -408,12 +389,8 @@
           "name": "document_lines_document_id_documents_id_fk",
           "tableFrom": "document_lines",
           "tableTo": "documents",
-          "columnsFrom": [
-            "document_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["document_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -580,16 +557,12 @@
       "indexes": {
         "documents_project_idx": {
           "name": "documents_project_idx",
-          "columns": [
-            "project_id"
-          ],
+          "columns": ["project_id"],
           "isUnique": false
         },
         "documents_number_unique": {
           "name": "documents_number_unique",
-          "columns": [
-            "number"
-          ],
+          "columns": ["number"],
           "isUnique": true
         }
       },
@@ -598,12 +571,8 @@
           "name": "documents_project_id_projects_id_fk",
           "tableFrom": "documents",
           "tableTo": "projects",
-          "columnsFrom": [
-            "project_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["project_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "no action"
         }
@@ -641,10 +610,7 @@
       "indexes": {
         "number_sequences_type_year_unique": {
           "name": "number_sequences_type_year_unique",
-          "columns": [
-            "document_type",
-            "year"
-          ],
+          "columns": ["document_type", "year"],
           "isUnique": true
         }
       },
@@ -711,9 +677,7 @@
       "indexes": {
         "payments_invoice_idx": {
           "name": "payments_invoice_idx",
-          "columns": [
-            "invoice_id"
-          ],
+          "columns": ["invoice_id"],
           "isUnique": false
         }
       },
@@ -722,12 +686,8 @@
           "name": "payments_invoice_id_documents_id_fk",
           "tableFrom": "payments",
           "tableTo": "documents",
-          "columnsFrom": [
-            "invoice_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["invoice_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "no action"
         }
@@ -816,9 +776,7 @@
       "indexes": {
         "projects_customer_idx": {
           "name": "projects_customer_idx",
-          "columns": [
-            "customer_id"
-          ],
+          "columns": ["customer_id"],
           "isUnique": false
         }
       },
@@ -827,12 +785,8 @@
           "name": "projects_customer_id_customers_id_fk",
           "tableFrom": "projects",
           "tableTo": "customers",
-          "columnsFrom": [
-            "customer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["customer_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "no action"
         }

@@ -1,5 +1,5 @@
 {
-  "name": "quotation-manager",
+  "name": "quotient",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,12 +10,14 @@
     "deploy": "opennextjs-cloudflare deploy",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
+    "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "db:generate": "drizzle-kit generate",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "prepare": "husky"
   },
   "dependencies": {
     "@base-ui/react": "1.6.0",
@@ -29,6 +31,8 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20260621.1",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@playwright/test": "1.61.0",
     "@tailwindcss/postcss": "4.1.11",
     "@types/node": "24.3.0",
@@ -37,6 +41,9 @@
     "drizzle-kit": "0.31.10",
     "eslint": "9.34.0",
     "eslint-config-next": "16.2.9",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.8.4",
     "tailwindcss": "4.1.11",
     "typescript": "5.9.2",
     "vitest": "4.1.9",
